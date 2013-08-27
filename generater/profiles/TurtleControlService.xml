@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<service_port_type_profile>
+  <service_port_type>
+    <type_name>TurtleControlService</type_name>
+    <method name="goLeft" return_type="void" call_type="blocking"/>
+    <method name="goRight" return_type="void" call_type="blocking"/>
+    <method name="goUp" return_type="void" call_type="blocking"/>
+    <method name="goDown" return_type="void" call_type="blocking"/>
+  </service_port_type>
+</service_port_type_profile>
+

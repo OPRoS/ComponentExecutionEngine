@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<component_profile>
+	<id>32e72739-9021-4293-9c81-3d827cedf776</id>
+	<name>TaskRomeoControl</name>
+	<version>1.0</version>
+	<layout>250,92,250,200</layout>
+	<collapsed>0</collapsed>
+	<copyright>
+		<company>
+			<name />
+			<phone />
+			<address />
+			<homepage />
+		</company>
+		<license_policy>LGPL</license_policy>
+	</copyright>
+	<execution_environment>
+		<library_type>dll</library_type>
+		<library_name>TaskRomeoControl.dll</library_name>
+		<impl_language>MSVC C++</impl_language>
+		<compiler>MSVC</compiler>
+		<app_domain />
+		<app_robot />
+	</execution_environment>
+	<execution_semantics>
+		<type>periodic</type>
+		<period>100</period>
+		<priority>5</priority>
+		<instance_creation>singleton</instance_creation>
+	</execution_semantics>
+	<properties />
+	<data_type_list />
+	<defined_data_types />
+	<defined_service_types>
+		<defined_service_type>RomeoService.xml</defined_service_type>
+		<defined_service_type>opros_service_type.xml</defined_service_type>
+	</defined_service_types>
+	<exports />
+	<ports>
+		<service_port>
+			<name>Position2dR</name>
+			<description />
+			<type>position2d</type>
+			<usage>required</usage>
+			<reference>opros_service_type.xml</reference>
+			<layout>484,130,106,32</layout>
+		</service_port>
+		<service_port>
+			<name>BumperR</name>
+			<description />
+			<type>bumper</type>
+			<usage>required</usage>
+			<reference>opros_service_type.xml</reference>
+			<layout>484,182,90,32</layout>
+		</service_port>
+		<service_port>
+			<name>SonarR</name>
+			<description />
+			<type>sonar</type>
+			<usage>required</usage>
+			<reference>opros_service_type.xml</reference>
+			<layout>484,257,79,32</layout>
+		</service_port>
+		<service_port>
+			<name>WheelService</name>
+			<description />
+			<type>WheelService</type>
+			<usage>provided</usage>
+			<reference>RomeoService.xml</reference>
+			<layout>148,130,118,32</layout>
+		</service_port>
+		<service_port>
+			<name>BumperService</name>
+			<description />
+			<type>BumperService</type>
+			<usage>provided</usage>
+			<reference>RomeoService.xml</reference>
+			<layout>138,179,128,32</layout>
+		</service_port>
+		<service_port>
+			<name>SonarService</name>
+			<description />
+			<type>SonarService</type>
+			<usage>provided</usage>
+			<reference>RomeoService.xml</reference>
+			<layout>149,235,117,32</layout>
+		</service_port>
+	</ports>
+</component_profile>
+

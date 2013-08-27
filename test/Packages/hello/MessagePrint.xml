@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service_port_type_profile>
+<service_port_type>
+	<type_name>MessagePrint</type_name>
+	<method name="print" return_type="void" call_type="nonblocking">
+		<param index="1">
+			<type>std::string</type>
+			<name>message</name>
+		</param>
+	</method>
+</service_port_type>
+</service_port_type_profile>

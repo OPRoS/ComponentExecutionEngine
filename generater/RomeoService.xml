@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<service_port_type_profile>
+	<service_port_type>
+		<type_name>WheelService</type_name>
+		<method name="SetDiffVel" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>vleft</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>vright</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="MotorEnable" return_type="void" call_type="blocking" />
+		<method name="MotorDisable" return_type="void" call_type="blocking" />
+	</service_port_type>
+	<service_port_type>
+		<type_name>BumperService</type_name>
+		<method name="IsBumped" return_type="int" call_type="blocking">
+			<param index="1">
+				<name>nIndex</name>
+				<type>int</type>
+			</param>
+		</method>
+		<method name="IsAnyBumped" return_type="bool" call_type="blocking" />
+	</service_port_type>
+	<service_port_type>
+		<type_name>SonarService</type_name>
+		<method name="GetScan" return_type="double" call_type="blocking">
+			<param index="1">
+				<name>nIndex</name>
+				<type>int</type>
+			</param>
+		</method>
+		<method name="GetVectorScan" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+	</service_port_type>
+</service_port_type_profile>
+

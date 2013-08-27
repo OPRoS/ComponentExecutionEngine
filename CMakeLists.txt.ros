@@ -1,0 +1,52 @@
+set (MY_SOLUTION_NAME ComponentEngine)
+set (CDL_NAME OPRoSCDL)
+cmake_minimum_required(VERSION 2.6)
+PROJECT(${MY_SOLUTION_NAME})
+
+FILE(GLOB_RECURSE SRCS src/*.cpp)
+FILE(GLOB_RECURSE CDLSRCS cdl/*.cpp src/archive/*.cpp)
+FILE(GLOB_RECURSE WINSRCS win/*.cpp)
+
+SET(CMAKE_INSTALL_PREFIX "d:/out/install")
+
+SET(ROS_PACKAGES "/opt/ros/electric/stacks")
+
+INCLUDE_DIRECTORIES(
+        ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/src
+        ${PROJECT_SOURCE_DIR}/cdl
+        ${PROJECT_SOURCE_DIR}/src/system/os        
+        ${PROJECT_SOURCE_DIR}/src/system/os        
+        ${ROS_PACKAGES}/ros_comm/clients/cpp/roscpp/include
+ 	${ROS_PACKAGES}/ros_comm/utilities/rostime/include
+        ${ROS_PACKAGES}/ros_comm/utilities/cpp_common/include
+        ${ROS_PACKAGES}/ros_comm/utilities/xmlrpcpp/src
+        ${ROS_PACKAGES}/ros_comm/tools/rosconsole/include
+        ${ROS_PACKAGES}/ros_comm/clients/cpp/roscpp_serialization/include
+        ${ROS_PACKAGES}/ros_comm/clients/cpp/roscpp_traits/include
+        ${MY_INCLUDE_DIRS}
+)
+
+ADD_LIBRARY(${CDL_NAME} STATIC ${CDLSRCS})
+
+LINK_DIRECTORIES(
+	${ROS_PACKAGES}/ros_comm/clients/cpp/roscpp/lib
+)
+
+IF (MSVC)
+ADD_DEFINITIONS(-DEXECUTOR_USE_ADAPTOR -DNO_VERIFY_COMPONENT -DNO_BOOST /wd4290)
+ADD_EXECUTABLE(${MY_SOLUTION_NAME}  ${SRCS} ${WINSRCS})
+TARGET_LINK_LIBRARIES(${MY_SOLUTION_NAME} ws2_32.lib winmm.lib)
+ELSE(MSVC)
+IF (MINGW)
+ADD_DEFINITIONS(-DEXECUTOR_USE_ADAPTOR -DNO_VERIFY_COMPONENT -DNO_BOOST)
+ADD_EXECUTABLE(${MY_SOLUTION_NAME}  ${SRCS} )
+TARGET_LINK_LIBRARIES(${MY_SOLUTION_NAME} ws2_32.lib winmm.lib)
+ELSE(MINGW)
+ADD_DEFINITIONS(-DEXECUTOR_USE_ADAPTOR -DNO_VERIFY_COMPONENT -DNO_BOOST)
+ADD_EXECUTABLE(${MY_SOLUTION_NAME}  ${SRCS} )
+TARGET_LINK_LIBRARIES(${MY_SOLUTION_NAME} pthread dl rt ros)
+ENDIF(MINGW)
+ENDIF(MSVC)
+
+ADD_DEFINITIONS(-DMAKE_COMPONENT_DLL)

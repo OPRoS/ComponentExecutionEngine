@@ -1,0 +1,38 @@
+<package_profile>
+		<id>21321f.13af3d85eb3.22.6a9</id>
+		<name>Package</name>
+		<version>1.0</version>
+		<description></description>
+		<copyright>
+			<license_policy>LGPL</license_policy>
+			<company>
+				<name></name>
+				<phone></phone>
+				<address></address>
+				<homepage></homepage>
+			</company>
+		</copyright>
+		
+		<subcomponents>
+			<subcomponent>
+			<node_id>TestRobot.Com1</node_id>
+			<name>HelloMaker</name>
+			<id>null</id>
+			<version></version>
+			<type>atomic</type>
+			<reference>HelloMaker.xml</reference>
+			</subcomponent>
+			<subcomponent>
+			<node_id>TestRobot.Com1</node_id>
+			<name>MessagePrinter</name>
+			<id>null</id>
+			<version></version>
+			<type>atomic</type>
+			<reference>MessagePrinter.xml</reference>
+			</subcomponent>
+		</subcomponents>
+		
+		
+		<port_connections>
+		</port_connections>
+</package_profile>

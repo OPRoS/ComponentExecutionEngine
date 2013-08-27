@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<system_config>
+	<system_props>
+		<prop name="trace">off</prop>
+		<prop name="app.default">hello</prop>
+		<prop name="sys.console">on</prop>
+		<prop name="sys.waitFinished">off</prop>
+		<prop name="deploy.dir">Packages</prop>
+	</system_props>
+		
+	<logger_factory>
+		<logger name="system.logger" type="file" enable="false">
+			<prop name="log.level">error</prop>
+			<prop name="log.file">system.log</prop>
+			<prop name="log.dir">system.dir</prop>
+		</logger>
+		
+		<logger name="system.logger" type="cout" enable="true">
+			<prop name="log.level">error</prop>
+		</logger>
+	</logger_factory>
+
+	<package_deployer>
+		<!-- auto load flag 
+		     - all : all xml loading
+		     - none : no loading
+		     - list : load the xml files list below
+		-->
+		<prop name="load.type">none</prop>
+	
+		<app_load>Test</app_load>
+	</package_deployer>
+
+	<component_manager>
+		<io_connector>
+			<connection_handler>component_io</connection_handler>
+			<event_processor>system</event_processor>
+		</io_connector>
+		
+		<!--local_node_id>TestRobot.Com1</local_node_id-->
+		<local_node_id>TestRobot.Com1</local_node_id>
+		<node_map>
+           <node id="TestRobot.Com2" protocol="tcp">
+                <prop name="ip.addr">127.0.0.1</prop>
+                <prop name="ip.port">4000</prop>
+                <prop name="backlog">100</prop>
+           </node>
+           <node id="TestRobot.Com5" protocol="tcp">
+                <prop name="ip.addr">127.0.0.1</prop>
+                <prop name="ip.port">5002</prop>
+                <prop name="backlog">100</prop>
+           </node>
+		</node_map>
+	</component_manager>
+
+	<io_manager>
+		<event_processor type="selector" id="system" enable="true"></event_processor>
+
+		<io id = "component_io" protocol="tcp" role="server" enable="true">
+			<prop name="cnn.handler">component_io</prop>
+			<prop name="evt.processor">system</prop>
+			<prop name="ip.addr">127.0.0.1</prop>
+			<prop name="ip.port">2000</prop>
+			<prop name="backlog">100</prop>
+		</io>
+
+		<io id = "console_io" protocol="tcp" role="server" enable="true">
+			<prop name="cnn.handler">console_io</prop>
+			<prop name="evt.processor">system</prop>
+			<prop name="ip.addr">127.0.0.1</prop>
+			<prop name="ip.port">2001</prop>
+			<prop name="nonblocking">false</prop>
+			<prop name="backlog">100</prop>
+		</io>
+
+		<io id = "external_io" protocol="tcp" role="server" enable="true">
+			<prop name="cnn.handler">external_io</prop>
+			<prop name="evt.processor">system</prop>
+			<prop name="ip.addr">127.0.0.1</prop>
+			<prop name="ip.port">2002</prop>
+			<prop name="nonblocking">false</prop>
+			<prop name="backlog">100</prop>			
+		</io>		
+		<!--io id = "external_io2" protocol="tcp" role="server" enable="true">
+			<prop name="cnn.handler">external_io</prop>
+			<prop name="evt.processor">system</prop>
+			<prop name="ip.addr">129.254.87.21</prop>
+			<prop name="ip.port">4002</prop>
+			<prop name="nonblocking">false</prop>
+			<prop name="backlog">100</prop>			
+		</io-->		
+	</io_manager>
+
+	<mwadaptor_manager>
+		<prop name="is_run">false</prop>
+		<prop name="ip.addr"></prop>
+	</mwadaptor_manager>
+	
+</system_config>

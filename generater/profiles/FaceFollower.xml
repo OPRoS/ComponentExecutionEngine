@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<component_profile>
+	<id>1bfb3398-f232-4a85-a551-5b4f1d97f356</id>
+	<name>FaceFollower</name>
+	<version>1.0</version>
+	<description>FaceFollower component</description>
+	<layout>100,150,250,200</layout>
+	<copyright>
+		<company>
+			<name>ETRI</name>
+			<phone></phone>
+			<address></address>
+			<homepage>www.etri.re.kr</homepage>
+		</company>
+		<license_policy>OPRoS</license_policy>
+	</copyright>
+	<execution_environment>
+		<library_type>dll</library_type>
+		<library_name>FaceFollower.dll</library_name>
+		<impl_language>MinGW C++</impl_language>
+		<compiler>MSVC</compiler>
+		<app_domain />
+		<app_robot />
+	</execution_environment>
+	<execution_semantics>
+		<type>periodic</type>
+		<period>500</period>
+		<priority>5</priority>
+		<instance_creation>singleton</instance_creation>
+		<lifecycle_type>start</lifecycle_type>
+	</execution_semantics>
+	<properties />
+	<data_type_list />
+	<defined_data_types />
+	<exports>
+		<var name="enable" type="bool"/>
+	</exports>
+	<defined_service_types>
+		<defined_service_type>WheelControllerService.xml</defined_service_type>
+	</defined_service_types>
+	<ports>
+		<service_port>
+			<name>WheelControl</name>
+			<description />
+			<type>WheelControllerService</type>
+			<usage>required</usage>
+			<reference>WheelControllerService.xml</reference>
+			<layout>334,221,224,32</layout>
+		</service_port>
+		<event_port>
+			<name>event_in_port</name>
+			<description />
+			<data_type>int</data_type>
+			<usage>input</usage>
+			<layout>334,283,136,32</layout>
+		</event_port>
+		<event_port>
+			<name>face_in_port</name>
+			<description />
+			<data_type>FaceRect</data_type>
+			<usage>input</usage>
+			<layout>334,293,136,32</layout>
+		</event_port>
+	</ports>
+</component_profile>
+

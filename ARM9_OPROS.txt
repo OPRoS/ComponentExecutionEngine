@@ -1,0 +1,3 @@
+SET(CMAKE_C_COMPILER /home/Tools/arm9/arm9-4.3.2/bin/arm-linux-gcc)
+SET(CMAKE_CXX_COMPILER /home/Tools/arm9/arm9-4.3.2/bin/arm-linux-g++)
+SET(TARGET_ARM arm9)

@@ -1,0 +1,29 @@
+==================================================================================================
+Abalone 1.0
+--------------------------------------------------------------------------------------------------
+==================================================================================================
+Abalone 1.01
+--------------------------------------------------------------------------------------------------
+ 1. Remove memory leak in engine
+ 2. add wstring processing module
+ 3. Add component scheduling policy in component execution semantics
+    ( You can use "SCHED_FIFO", "SCHED_RR", "SCHED_OTHER" in "policy" in component profile)
+   ex) .............................
+   <component_profile>
+       ...
+    <execution_semantics>
+    <type>periodic</type>
+    <period>20</period>
+    <priority>5</priority>
+    <policy>SCHED_FIFO</policy>
+    <instance_creation>singleton</instance_creation>
+    <lifecycle_type>start</lifecycle_type>
+   </execution_semantics>
+       ...
+   </component_profile>
+   ..................................
+
+==================================================================================================
+Abalone 1.01b
+--------------------------------------------------------------------------------------------------
+ 1. Modify Header ( fix GCC 4.7 dependency error)
