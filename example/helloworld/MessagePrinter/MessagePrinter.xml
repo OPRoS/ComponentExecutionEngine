@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component_profile>
+<name>MessagePrinter</name>
+<description>MessagePrinter Sample Component</description>
+<execution_environment> 
+	<os name="WindowsXP" version="sp3"></os>
+	<cpu>x86</cpu>
+	<library_type>dll</library_type>
+	<library_name>MessagePrinterComp.dll</library_name>
+	<impl_language>c++</impl_language>
+	<compiler>MINGW</compiler>
+</execution_environment>
+<execution_semantics>
+	<type>periodic</type>
+	<period>30</period>
+	<priority>1</priority>
+	<creation_type>singleton</creation_type> 
+	<lifecycle_type>start</lifecycle_type> 
+</execution_semantics>
+<monitoring>
+	<var name="message" type="std::string"/>
+	<var name="int_value" type="int"/>
+	<var name="float_value" type="float"/>
+</monitoring>
+<ports>
+	<data_port>
+		<name>DataIn</name>
+		<usage>input</usage>
+		<data_type>std::string</data_type>
+		<policy>FIFO</policy>
+		<policy_param name="size">10</policy_param>
+	</data_port>
+	
+	<data_port>
+		<name>DataOut</name>
+		<data_type>std::string</data_type>
+		<usage>output</usage>
+	</data_port>
+	
+	<event_port>
+		<name>EventIn</name>
+		<usage>input</usage>
+		<data_type>std::string</data_type>
+	</event_port>
+
+	<event_port>
+		<name>EventOut</name>
+		<data_type>std::string</data_type>
+		<usage>output</usage>
+	</event_port>
+
+	<service_port>
+		<name>MessagePrint</name>
+		<type>MessagePrint</type>
+		<usage>provided</usage>
+		<reference>MessagePrint.xml</reference>
+	</service_port>
+</ports>
+</component_profile>

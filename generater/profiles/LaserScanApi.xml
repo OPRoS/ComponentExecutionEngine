@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<service_port_type_profile>
+  <service_port_type>
+    <type_name>LaserScanService</type_name>
+    <method name="start_scan" return_type="void" call_type="blocking"/>
+    <method name="stop_scan" return_type="void" call_type="blocking"/>
+    <method name="getDistance" return_type="double" call_type="blocking">
+      <param index="1">
+        <name>index</name>
+        <type>int</type>
+      </param>
+    </method>
+  </service_port_type>
+</service_port_type_profile>
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component_profile>
+<name>PortTestTwo</name>
+<description>PortTestTwo Sample Component</description>
+<execution_environment> 
+	<os name="WindowsXP" version="sp3"></os>
+	<cpu>x86</cpu>
+	<library_type>dll</library_type>
+	<library_name>PortTestTwo.dll</library_name>
+	<impl_language>c++</impl_language>
+	<compiler>MINGW</compiler>
+</execution_environment>
+<execution_semantics>
+	<type>periodic</type>
+	<period>20</period>
+	<priority>1</priority>
+	<creation_type>singleton</creation_type> 
+	<lifecycle_type>start</lifecycle_type> 
+</execution_semantics>
+<ports>
+	<data_port>
+		<name>LongDataIn</name>
+		<usage>input</usage>
+		<data_type>std::vector&lt;int&gt;</data_type>
+		<policy>FIFO</policy>
+		<policy_param name="size">10</policy_param>
+	</data_port>
+	<event_port>
+		<name>LongEventIn</name>
+		<usage>input</usage>
+		<data_type>std::vector&lt;int&gt;</data_type>
+	</event_port>
+	<data_port>
+		<name>LongDataOut</name>
+		<data_type>std::vector&lt;int&gt;</data_type>
+		<usage>output</usage>
+	</data_port>
+	<event_port>
+		<name>LongEventOut</name>
+		<data_type>std::vector&lt;int&gt;</data_type>
+		<usage>output</usage>
+	</event_port>
+</ports>
+</component_profile>

@@ -1,0 +1,119 @@
+오전 9:15 2012-02-16
+opros_binary_iarchive.cpp 수정 
+ -> ARM에서 pointer 변환이 제대로 되지 않는 문제 발생.
+    - pointer allignment문제로 x86과는 다른 형태로 동작됨.
+    - 해결은 union을 쓰거나 해당 변수의 address로 memcpy 사용
+
+
+오후 1:15 2012-02-20
+Engine에서 delete가 되도록 수정
+
+오후 3:03 2012-02-22
+Event Call Back 확장 가능하도록 수정
+CDL의 변화가 있으므로 재컴파일 필요함
+
+오후 1:57 2012-03-07
+const reference type에 대한 oarchive update
+CDL의 변화가 있으므로 재컴파일 필요함.
+
+오전 10:36 2012-03-12
+opros_iarchive.h에 오타로 인한 잠재적 문제 발생 수정함.
+  (load_selector의 loader,load를 loader.load로 수정)
+
+RequiredMethod.h에서 RequiredMethod 생성자의 초기화 구문을 수정함. (리눅스에서 warning이 생겼던 문제임)
+
+
+오후 5:42 2012-03-12
+app에서 pkg로 변화됨에 따라 모니터링 프로토콜 부분을 수정함
+
+오후 7:37 2012-03-16
+리눅스에서 stop이 안되는 버그발생
+Executor.cpp 수정하였음 (Execute::run의 m_runActState의 문제)
+리눅스에서 생성자에서의 변수 초기화 구문의 순서에 따라 에러가 나오는 경우가 있음.
+따라서, parent  class의 생성자를 먼저 호출하고 그 이후에 멤버 변수 생성을 하도록 수정함
+
+오후 3:59 2012-03-21
+ExecutonSemanticsInfo에서 life_cycle start로 수정함. default life cycle을 start로 함.
+
+
+오전 11:07 2012-03-30
+총괄의 요청에 따라 w_char를 넣도록 함. (CDL 변화가 발생: rel 0831-20120216-3임)
+opros_string_iarchive의 버그를 수정(stream 변환에서 정상적인 스트링이 에러로 나타나는 현상 수정)
+RequiredMethod.h가 ARM에서 bug가 있는 부분을 수정
+
+오전 11:45 2012-04-04
+새로운 Task와 연동되는 부분을 추가함. 엔진의 변화만 있음
+
+오후 7:27 2012-04-05
+ServicePortRole이 추가됨.
+잘못된 casting으로 인한 에러 발생의 잠재적 요소를 제거함 (CDL 변화가 발생: 0831-20120216-4임)
+
+오전 10:09 2012-04-26
+STL template function의 리눅스에서의 에러를 수정함 (CDL 변화가 발생: 0831-20120216-5임)
+-----------
+Abalone 1.0
+==================================================================================================
+Abalone 1.01
+--------------------------------------------------------------------------------------------------
+오전 11:49 2012-07-05
+Engine에서 메모리 누수 요인을 수정
+ System/deploy/PackageManager/addPackage 부분 수정.
+
+오후 6:31 2012-07-09
+ wstring에 대한 처리 부분 추가
+  opros_archive_common.cpp
+  opros_type_info.h
+  opros_iarchive_stl.h
+  opros_oarchive_stl.h가 수정됨.
+  컴포넌트 구현부 구조상 변화가 없으므로 이전 버전(1.0) 호환이 유지됨
+
+오후 2:42 2012-07-12
+엔진에서 aperiodic에서의 에러 발생
+m_hTimerHandle이 aperiodic인 경우 사용되지 않는데 
+이것에 대한 release 시도가 있었음.
+생성자에 m_hTimerHandle=NULL을 넣음
+
+오전 9:49 2012-07-13
+  Windows에서 엔진 종료시 에러가 발생하거나 컴포넌트 stop이 되지 않는 경우가 발생
+  -> 쓰레드 관리자에서 리턴한 쓰레드가 value로 전달되었고
+    해당 value가 critical section을 destroy 시점에 release 하는 문제가 발생됨 -> 수정함
+
+오전 9:38 2012-07-19
+OSCond::wait의 리눅스 버전에서 
+ pthread_cond_wait의 경우 mutex lock이 선행되어야 함에도 해당 구문이 없었음. 따라서 해당 부분을 추가함. [OSGuard g(mutex)]
+
+오전 9:38 2012-07-20
+컴포넌트 실행 시맨틱스에서 컴포넌트 스케쥴링 정책(SCHED_FIFO, SCHED_RR, SCHED_OTHER)를 선택할 수 있도록 수정
+ (실행시맨틱스내에 "policy" 항목에 SCHED_FIFO, SCHED_RR, SCHED_OTHER의 string으로 선택)
+
+오전 9:38 2012-07-21
+엔진내의 memory leak 요소 제거 
+ - 엔진의 ComponentAdapter *를 smart_pointer를 사용하도록 수정
+ - IoManager에서 EventProcess와 Transport가 destructor에서 제거될 수 있도록 수정
+ - IoWorkerManger::close의 버그 수정( for statement의 버그 수정)
+PackageManager::addPackage의 잘못된 return값 수정
+
+오전 10:36 2012-08-14
+GCC 4.7에서 발생하는 dependency error를 수정
+ - opros_oarchive.h 와 opros_iarhive.h 에서 save_class_selector, load_class_selector 및 
+save_class, load_class를 파일 처음 부분에 정의하여 dependency 오류 해결함. 그리고
+save_this 및 load_this에 대한 명시적 선언으로 unknown symbol 에러를 해결함.
+  - opros_type_info.h에서도 depdency 오류 부분을 수정함
+
+오후 12:57 2012-09-06
+리눅스에서 stop 오류 현상 수정 
+ (Executor.cpp에서 destory, destructor, run의 구문에서
+  executor가 destory될것인지는 검사하는 등의 구문을 추가 및  수정함)
+
+오후 2:11 2012-09-14
+opros_smart_ptr.h의 오류
+reset 구문의 버그를 수정함
+ reset에 --(*this) 삭제
+
+오후 6:45 2012-09-14
+Executor에서 MethodInvokeException의 발생이 있어도 실행을 계속하도록 수정.
+IoSelector에서 통신중에 상대방이 close했을때 발생하는 오류 수정
+
+오후 5:55 2012-09-21
+CDL에 버그 발생 
+RequiredServicePort에서 소멸자에서 delete m_con을 if (m_con != NULL) delete m_con으로 수정

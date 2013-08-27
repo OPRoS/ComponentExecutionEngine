@@ -1,0 +1,48 @@
+<!-- application_profile.xml-->
+<application_profile>
+	<name>hello</name>
+	<description>Hello World Application</description>
+	
+	<copyright> 
+		<license_policy>OPRoS</license_policy>
+		<version>1.0</version>
+		<company>
+			<name>ETRI</name>
+			<phone>042-860-6411</phone>
+			<address>161, Kajeong-dong, Yuseong-gu, Daejeon, Korea</address>
+			<homepage>www.etri.com</homepage>
+		</company>	
+	</copyright>
+	
+	<subcomponents>
+		<subcomponent>
+			<node_id>TestRobot.Com1</node_id>
+			<name>HelloMaker</name>
+			<reference>HelloMaker.xml</reference>
+		</subcomponent>
+		<subcomponent>
+			<node_id>TestRobot.Com5</node_id>
+			<name>MessagePrinter</name>
+			<reference>MessagePrinter.xml</reference>
+		</subcomponent>
+	</subcomponents>
+	
+   <port_connections>
+	   <!--port_connection port_type="service" io_type="upnp" -->>
+	   <port_connection port_type="service">
+			<source component_name="HelloMaker" port_name="MessagePrint"/>
+			<target component_name="MessagePrinter" port_name="MessagePrint"/>
+		</port_connection>
+		
+		<port_connection port_type="data">
+			<source component_name="HelloMaker" port_name="DataOut"/>
+			<target component_name="MessagePrinter" port_name="DataIn"/>
+		</port_connection>
+		
+		<!-- port_connection port_type="event">
+			<source component_name="HelloMaker" port_name="EventOut"/>
+			<target component_name="MessagePrinter" port_name="EventIn"/>
+		</port_connection -->
+	</port_connections>
+	
+</application_profile>

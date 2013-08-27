@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<service_port_type_profile>
+	<service_port_type>
+		<type_name>position2d</type_name>
+		<method name="position2d_SetDiffVel" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>vl</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>vr</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="position2d_SetSpeed_X_Y_Yaw" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aXSpeed</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>aYSpeed</name>
+				<type>double</type>
+			</param>
+			<param index="3">
+				<name>aYawSpeed</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="position2d_SetSpeed_X_Yaw" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aXSpeed</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>aYawSpeed</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="position2d_SetSpeed" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>vel</name>
+				<type>std::vector&lt;double&gt;</type>
+			</param>
+		</method>
+		<method name="position2d_SetVelHead_X_Y_Yaw" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aXSpeed</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>aYSpeed</name>
+				<type>double</type>
+			</param>
+			<param index="3">
+				<name>aYawHead</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="position2d_SetVelHead_X_Yaw" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aXSpeed</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>aYawHead</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="position2d_Goto_Pos_Vel" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>pos</name>
+				<type>std::vector&lt;double&gt;</type>
+			</param>
+			<param index="2">
+				<name>vel</name>
+				<type>std::vector&lt;double&gt;</type>
+			</param>
+		</method>
+		<method name="position2d_Goto_Pos" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>pos</name>
+				<type>std::vector&lt;double&gt;</type>
+			</param>
+		</method>
+		<method name="position2d_Goto_X_Y_Yaw" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aX</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>aY</name>
+				<type>double</type>
+			</param>
+			<param index="3">
+				<name>aYaw</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="position2d_SetCarlike" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aXSpeed</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>aDriveAngle</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="position2d_GetOffset" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="position2d_GetSize" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="position2d_SetMotorEnable" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>enable</name>
+				<type>bool</type>
+			</param>
+		</method>
+		<method name="position2d_ResetOdometry" return_type="void" call_type="blocking" />
+		<method name="position2d_SetOdometry" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aX</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>aY</name>
+				<type>double</type>
+			</param>
+			<param index="3">
+				<name>aYaw</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="position2d_GetStall" return_type="bool" call_type="blocking" />
+		<method name="position2d_GetPosition" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="position2d_GetSpeed" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="position2d_GetEncoder" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+	</service_port_type>
+	<service_port_type>
+		<type_name>power</type_name>
+		<method name="power_GetInfo" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="power_GetStatus" return_type="std::vector&lt;int&gt;" call_type="blocking" />
+		<method name="power_SetEnable" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>enable</name>
+				<type>std::vector&lt;int&gt;</type>
+			</param>
+		</method>
+	</service_port_type>
+	<service_port_type>
+		<type_name>bumper</type_name>
+		<method name="bumper_GetVectorScan" return_type="std::vector&lt;unsigned char&gt;" call_type="blocking" />
+		<method name="bumper_GetCount" return_type="unsigned int" call_type="blocking" />
+		<method name="bumper_IsBumped" return_type="unsigned int" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="bumper_IsAnyBumped" return_type="bool" call_type="blocking" />
+		<method name="bumper_GetPoseCount" return_type="unsigned int" call_type="blocking" />
+		<method name="bumper_GetPose" return_type="std::vector&lt;double&gt;" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+	</service_port_type>
+	<service_port_type>
+		<type_name>camera</type_name>
+		<method name="camera_SaveFrame" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aPrefix</name>
+				<type>std::string</type>
+			</param>
+			<param index="2">
+				<name>aWidth=4</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="camera_Decompress" return_type="void" call_type="blocking" />
+		<method name="camera_GetDepth" return_type="unsigned int" call_type="blocking" />
+		<method name="camera_GetWidth" return_type="unsigned int" call_type="blocking" />
+		<method name="camera_GetHeight" return_type="unsigned int" call_type="blocking" />
+		<method name="camera_GetFormat" return_type="unsigned int" call_type="blocking" />
+		<method name="camera_GetImageSize" return_type="unsigned int" call_type="blocking" />
+		<method name="camera_GetImage" return_type="std::vector&lt;unsigned char&gt;" call_type="blocking" />
+		<method name="camera_GetCompression" return_type="unsigned int" call_type="blocking" />
+	</service_port_type>
+	<service_port_type>
+		<type_name>ir</type_name>
+		<method name="ir_GetCount" return_type="unsigned int" call_type="blocking" />
+		<method name="ir_GetRange" return_type="double" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="ir_GetVoltage" return_type="double" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="ir_GetPoseCount" return_type="unsigned int" call_type="blocking" />
+		<method name="ir_GetPose" return_type="std::vector&lt;double&gt;" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+	</service_port_type>
+	<service_port_type>
+		<type_name>laser</type_name>
+		<method name="laser_GetCount" return_type="unsigned int" call_type="blocking" />
+		<method name="laser_GetMaxRange" return_type="double" call_type="blocking" />
+		<method name="laser_GetScanRes" return_type="double" call_type="blocking" />
+		<method name="laser_GetRangeRes" return_type="double" call_type="blocking" />
+		<method name="laser_GetScanningFrequency" return_type="double" call_type="blocking" />
+		<method name="laser_GetMinAngle" return_type="double" call_type="blocking" />
+		<method name="laser_GetMaxAngle" return_type="double" call_type="blocking" />
+		<method name="laser_GetConfMinAngle" return_type="double" call_type="blocking" />
+		<method name="laser_GetConfMaxAngle" return_type="double" call_type="blocking" />
+		<method name="laser_IntensityOn" return_type="bool" call_type="blocking" />
+		<method name="laser_GetPoint" return_type="std::vector&lt;double&gt;" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="laser_GetVectorRange" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="laser_GetVectorBearing" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="laser_GetRange" return_type="double" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="laser_GetBearing" return_type="double" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="laser_GetIntensity" return_type="int" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="laser_GetID" return_type="int" call_type="blocking" />
+		<method name="laser_Configure" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aMinAngle</name>
+				<type>double</type>
+			</param>
+			<param index="2">
+				<name>aMaxAngle</name>
+				<type>double</type>
+			</param>
+			<param index="3">
+				<name>aScanRes</name>
+				<type>unsigned int</type>
+			</param>
+			<param index="4">
+				<name>aRangeRes</name>
+				<type>unsigned int</type>
+			</param>
+			<param index="5">
+				<name>aIntensity</name>
+				<type>bool</type>
+			</param>
+			<param index="6">
+				<name>aScanningFrequency</name>
+				<type>double</type>
+			</param>
+		</method>
+		<method name="laser_GetPose" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="laser_GetRobotPose" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="laser_GetSize" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="laser_GetMinLeft" return_type="double" call_type="blocking" />
+		<method name="laser_GetMinRight" return_type="double" call_type="blocking" />
+		<method name="laser_MinLeft" return_type="double" call_type="blocking" />
+		<method name="laser_MinRight" return_type="double" call_type="blocking" />
+	</service_port_type>
+	<service_port_type>
+		<type_name>sonar</type_name>
+		<method name="sonar_GetVectorScan" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="sonar_GetCount" return_type="unsigned int" call_type="blocking" />
+		<method name="sonar_GetScan" return_type="double" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="sonar_GetPoseCount" return_type="unsigned int" call_type="blocking" />
+		<method name="sonar_GetPose" return_type="std::vector&lt;double&gt;" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+	</service_port_type>
+	<service_port_type>
+		<type_name>joystick</type_name>
+		<method name="joystick_GetVectorAxes" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="joystick_GetButtons" return_type="unsigned int" call_type="blocking" />
+		<method name="joystick_GetButtonsCheck" return_type="std::vector&lt;int&gt;" call_type="blocking" />
+		<method name="joystick_GetAxes" return_type="double" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+		<method name="joystick_GetAxesCount" return_type="unsigned int" call_type="blocking" />
+		<method name="joystick_GetPose" return_type="std::vector&lt;double&gt;" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+	</service_port_type>
+	<service_port_type>
+		<type_name>imu</type_name>
+		<method name="imu_GetAccel" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="imu_GetGyro" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="imu_GetMagn" return_type="std::vector&lt;double&gt;" call_type="blocking" />
+		<method name="imu_SetDatatype" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aDatatype</name>
+				<type>int</type>
+			</param>
+		</method>
+		<method name="imu_ResetOrientation" return_type="void" call_type="blocking">
+			<param index="1">
+				<name>aValue</name>
+				<type>int</type>
+			</param>
+		</method>
+		<method name="imu_GetPose" return_type="std::vector&lt;double&gt;" call_type="blocking">
+			<param index="1">
+				<name>aIndex</name>
+				<type>unsigned int</type>
+			</param>
+		</method>
+	</service_port_type>
+</service_port_type_profile>
+

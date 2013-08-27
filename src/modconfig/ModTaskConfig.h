@@ -1,0 +1,6 @@
+#ifndef MODTASKCONFIG_H
+#define MODTASKCONFIG_H
+
+//#define MOD_OPROS_TASK
+
+#endif //MODTASKCONFIG_H

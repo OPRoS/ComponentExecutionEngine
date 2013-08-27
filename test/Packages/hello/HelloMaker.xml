@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component_profile>
+<name>HelloMaker</name>
+<description>HelloMaker Sample Component</description>
+<execution_environment> 
+	<os name="WindowsXP" version="sp3"></os>
+	<cpu>x86</cpu>
+	<library_type>dll</library_type>
+	<library_name>HelloMaker.dll</library_name>
+	<impl_language>c++</impl_language>
+	<compiler>MINGW</compiler>
+</execution_environment>
+<execution_semantics>
+	<type>periodic</type>
+	<period>200</period>
+	<priority>1</priority>
+	<instance_creation>singleton</instance_creation> 
+	<lifecycle_type>start</lifecycle_type> 
+</execution_semantics>
+
+<properties>
+    <property name="TimeOut" type="long">10</property>
+    <property name="PortName" type="string">COM1</property>
+    <property name="BaudRate" type="long">57600</property>
+    <property name="DataBits" type="int">8</property>
+    <property name="StopBits" type="int">0</property>
+    <property name="Parity" type="int">0</property>
+    <property name="FlowControl" type="int">0</property>
+</properties>
+	
+<ports>
+	<data_port>
+		<name>DataOut</name>
+		<data_type>std::string</data_type>
+		<usage>output</usage>
+	</data_port>
+	<data_port>
+		<name>DataIn</name>
+		<data_type>std::string</data_type>
+		<usage>input</usage>
+	</data_port>
+
+	<event_port>
+		<name>EventOut</name>
+		<data_type>std::string</data_type>
+		<usage>output</usage>
+	</event_port>
+	<event_port>
+		<name>EventIn</name>
+		<data_type>std::string</data_type>
+		<usage>input</usage>
+	</event_port>
+	<service_port>
+		<name>MessagePrint</name>
+		<type>MessagePrint</type>
+		<usage>required</usage>
+		<reference>MessagePrint.xml</reference>
+	</service_port>
+</ports>
+</component_profile>
